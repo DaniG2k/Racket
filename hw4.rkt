@@ -66,3 +66,19 @@
   (aux 0))
 
 ; 10
+(define (cached-assoc xs n)
+  (letrec ([memo (make-vector n #f)]
+           [pos 0]
+           [f (lambda (v)
+                (let ([ans (vector-assoc v memo)])
+                  (if ans
+                      ans
+                      (let ([new-ans (assoc v xs)])
+                        (if new-ans
+                            (begin (vector-set! memo pos new-ans)
+                                   (set! pos (remainder (add1 pos) (- n 1)))
+                                   new-ans)
+                            #f)))))])
+    f))
+
+; 11

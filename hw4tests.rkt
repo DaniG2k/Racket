@@ -110,6 +110,12 @@ ones))
 (print (equal? (vector-assoc 5 (list->vector '((2 . 8)))) #f))
 (newline)
 
+;10
+(print (equal? ((cached-assoc '((2 . 8) (5 . 7)) 3) 5) '(5 . 7)))
+(print (equal? ((cached-assoc '((2 . 8) (5 . 3) (5 . 7)) 1) 5) '(5 . 3)))
+(print (equal? ((cached-assoc '((2 . 8)) 3) 5) #f))
+(print (equal? ((cached-assoc '((2 . 3) (4 . 5) (5 . 6) (6 . 7)) 4) 2) '(2 . 3)))
+
 ; These definitions will work only after you do some of the problems
 ; so you need to comment them out until you are ready.
 ; Add more tests as appropriate, of course.
