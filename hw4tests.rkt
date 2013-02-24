@@ -97,6 +97,19 @@ ones))
 '((1 . "a") (2 . "b") (3 . "a") (1 . "b") (2 . "a") (3 . "b") (1 . "a") (2 . "b"))))
 (newline)
 
+;9 
+(define vec  (vector (cons 5 2) (cons 3 6) 2))
+(print (equal? (vector-assoc 2 vec) #f))
+(print (equal? (vector-assoc 3 vec) '(3 . 6)))
+(define xs '#((0 . "a") 4 (1 . "b") (2 . "c")))
+(print (equal? (vector-assoc 1 xs) '(1 . "b")))
+(define ys (vector ))
+(print (equal? (vector-assoc 3 ys) #f))
+(print (equal? (vector-assoc 5 (list->vector '((2 . 8) (5 . 7)))) '(5 . 7)))
+(print (equal? (vector-assoc 5 (list->vector '((2 . 8) (5 . 3) (5 . 7)))) '(5 . 3)))
+(print (equal? (vector-assoc 5 (list->vector '((2 . 8)))) #f))
+(newline)
+
 ; These definitions will work only after you do some of the problems
 ; so you need to comment them out until you are ready.
 ; Add more tests as appropriate, of course.

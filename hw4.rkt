@@ -3,8 +3,6 @@
 
 (provide (all-defined-out)) ;; so we can put tests in a second file
 
-;; put your code below
-
 ; 1
 (define (sequence low high stride)
   (if (> low high)
@@ -55,3 +53,16 @@
                    (cons (list-nth-mod xs n) (list-nth-mod ys n))
                    (lambda () (aux (+ n 1)))))
   (lambda () (aux 0)))
+
+; 9
+(define (vector-assoc v vec)
+  (define (aux n) (if (>= n (vector-length vec))
+                      #f
+                      (let ([current (vector-ref vec n)]
+                            [next (lambda (x) (aux (+ x 1)))])
+                        (if (pair? current)
+                            (if (equal? (car current) v) current (next n))
+                            (next n)))))
+  (aux 0))
+
+; 10
