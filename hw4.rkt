@@ -76,7 +76,7 @@
                       (let ([new-ans (assoc v xs)])
                         (if new-ans
                             (begin (vector-set! memo pos new-ans)
-                                   (set! pos (remainder (add1 pos) (- n 1)))
+                                   (set! pos (remainder (add1 pos) n))
                                    new-ans)
                             #f)))))])
     f))
