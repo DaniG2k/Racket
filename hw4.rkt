@@ -82,3 +82,12 @@
     f))
 
 ; 11
+; Macros practice
+(define-syntax while-less
+  (syntax-rules (do)
+    [(while-less e1 do e2)
+     (letrec ([x (eval e1)]
+              [f (lambda (y) (if (< y x)
+                                 (begin (f e2) #t)
+                                 #f))])
+       (f e2))]))

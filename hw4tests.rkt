@@ -116,6 +116,14 @@ ones))
 (print (equal? ((cached-assoc '((2 . 8)) 3) 5) #f))
 (print (equal? ((cached-assoc '((2 . 3) (4 . 5) (5 . 6) (6 . 7)) 4) 2) '(2 . 3)))
 (print (equal? ((cached-assoc '() 4) 2) #f))
+(newline)
+
+;11
+#|
+(define a 2)
+(while-less 7 do (begin (set! a (+ a 1)) (print "x") a))
+(while-less 7 do (begin (set! a (+ a 1)) (print "x") a))
+|#
 
 ; These definitions will work only after you do some of the problems
 ; so you need to comment them out until you are ready.
